@@ -115,18 +115,6 @@ A dedicated VPC was created to isolate the security monitoring environment.
 | Name       | `Splunk-VPC`  |
 | CIDR Block | `10.0.0.0/16` |
 
-### Screenshot Placement
-
-Insert screenshot here showing:
-
-* VPC name
-* CIDR block
-* VPC ID
-
-```markdown id="w5tqkr"
-![Custom VPC](images/vpc.png)
-```
-
 ---
 
 ## 2. Create Public Subnet
@@ -140,17 +128,6 @@ A public subnet was configured to host the Splunk EC2 instance.
 | Availability Zone       | `us-west-1a`        |
 | Auto-assign Public IPv4 | Disabled            |
 
-### Screenshot Placement
-
-Insert screenshot here showing:
-
-* Public subnet
-* CIDR block
-* Availability Zone
-
-```markdown id="hf0gme"
-![Public Subnet](images/subnet.png)
-```
 
 ---
 
@@ -158,11 +135,6 @@ Insert screenshot here showing:
 
 An Internet Gateway was created and attached to the VPC to provide outbound internet access.
 
-### Internet Gateway
-
-```text id="f0aqtr"
-soc-igw
-```
 
 ### Route Table Configuration
 
@@ -180,7 +152,6 @@ Insert screenshot here showing:
 ```
 
 ---
-
 ## 4. Configure Security Group
 
 A dedicated security group was configured for controlled administrative and Splunk access.
@@ -200,16 +171,8 @@ Splunk-Sec-Group
 | Splunk Management | TCP      | 8089 | Trusted Public IP `/32` |
 | Splunk Forwarding | TCP      | 9997 | Trusted Public IP `/32` |
 
-### Screenshot Placement
 
-Insert screenshot here showing:
 
-* Security group rules
-* Allowed ports
-* Restricted source IPs
-
-```markdown id="6u6h03"
-![Security Group](images/security-group.png)
 ```
 
 ---
@@ -218,16 +181,7 @@ Insert screenshot here showing:
 
 An Elastic IP address was allocated and associated with the Splunk-Server instance to provide persistent public connectivity and stable remote access.
 
-### Screenshot Placement
 
-Insert screenshot here showing:
-
-* Elastic IP
-* Associated instance
-* Public IPv4
-
-```markdown id="o6ikfj"
-![Elastic IP](images/elastic-ip.png)
 ```
 
 ---
@@ -250,16 +204,7 @@ An Ubuntu-based EC2 instance was deployed using the custom VPC and public subnet
 | Elastic IP     | Attached manually      |
 | Security Group | `Splunk-Sec-Group`     |
 
-### Screenshot Placement
 
-Insert screenshot here showing:
-
-* EC2 running state
-* Instance type
-* Public IP
-
-```markdown id="t3d2nm"
-![EC2 Instance](images/ec2-instance.png)
 ```
 
 ---
@@ -296,15 +241,7 @@ sudo /opt/splunk/bin/splunk enable boot-start
 http://<ELASTIC-IP>:8000
 ```
 
-### Screenshot Placement
-
-Insert screenshot here showing:
-
-* Splunk home dashboard
-* Logged-in interface
-
-```markdown id="jlwm42"
-![Splunk Dashboard](images/splunk-dashboard.png)
+![Alt text](Splunk_Web_Interface.png)
 ```
 
 ---
@@ -350,24 +287,9 @@ Insert screenshot here showing:
 
 An Amazon SQS Standard Queue was created to support event-driven ingestion.
 
-### Queue Name
 
-```text id="jlwm45"
-cloudtrail-splunk-queue
 ```
-
-### Screenshot Placement
-
-Insert screenshot here showing:
-
-* Queue name
-* Queue ARN
-* Queue type
-
-```markdown id="jlwm46"
-![SQS Queue](images/sqs-queue.png)
 ```
-
 ---
 
 ## 12. Configure S3 Event Notifications
@@ -432,17 +354,9 @@ A custom IAM policy was attached to provide access to:
 * Amazon SQS
 * AWS CloudTrail
 
-### Screenshot Placement
 
-Insert screenshot here showing:
-
-* IAM policy JSON
-* Attached permissions
-
-```markdown
-![IAM Policy](images/iam-policy.png)
 ```
-
+```
 ---
 
 # Splunk AWS Integration
@@ -470,15 +384,7 @@ Splunk Add-on for AWS
 → Add
 ```
 
-### Screenshot Placement
 
-Insert screenshot here showing:
-
-* AWS account configured
-* Account enabled
-
-```markdown id="jlwm54"
-![AWS Account Configuration](images/aws-account.png)
 ```
 
 ---
@@ -502,16 +408,7 @@ Splunk Add-on for AWS
 | Sourcetype  | `aws:cloudtrail`          |
 | Index       | `default`                 |
 
-### Screenshot Placement
 
-Insert screenshot here showing:
-
-* CloudTrail input
-* SQS queue selected
-* Enabled status
-
-```markdown id="jlwm56"
-![CloudTrail Input](images/cloudtrail-input.png)
 ```
 
 ---
@@ -542,7 +439,7 @@ AWS actions were performed to generate CloudTrail events, including:
 ```
 index=* sourcetype=aws:cloudtrail
 ```
-
+![Alt text](1st_spl.png)
 ---
 
 ## Count AWS API Actions
@@ -551,7 +448,7 @@ index=* sourcetype=aws:cloudtrail
 index=* sourcetype=aws:cloudtrail
 | stats count by eventName
 ```
-
+![Alt text](2nd_spl.png)
 ---
 
 ## Investigate User Activity
@@ -560,7 +457,7 @@ index=* sourcetype=aws:cloudtrail
 index=* sourcetype=aws:cloudtrail
 | table _time userIdentity.userName eventName sourceIPAddress
 ```
-
+![Alt text](3rd_spl.png)
 ---
 
 # Validation Performed
@@ -579,27 +476,14 @@ The following validations were successfully completed:
 
 ## S3 CloudTrail Logs
 
-Insert screenshot showing:
-
-* AWSLogs folder
-* CloudTrail log files
-
-```markdown id="jlwm61"
-![S3 Logs](images/s3-logs.png)
+![Alt text](Cloudtrail_log.png)
 ```
 
 ---
 
 ## SQS Monitoring Dashboard
 
-Insert screenshot showing:
-
-* Messages Sent
-* Messages Received
-* Messages Deleted
-
-```markdown id="jlwm62"
-![SQS Metrics](images/sqs-metrics.png)
+![Alt text](SQS_Monitoring_Dashboard.png)
 ```
 
 ---
