@@ -416,58 +416,7 @@ index=* sourcetype=aws:cloudtrail
 ![Alt text](3rd_spl.png)
 ---
 
-# Validation Performed
 
-The following validations were successfully completed:
-
-* CloudTrail log delivery to S3
-* S3 event notification delivery to SQS
-* SQS message consumption by Splunk
-* AWS modular input processing
-* Searchable CloudTrail events within Splunk Enterprise
-
----
-
-# Validation Screenshots
-
-## S3 CloudTrail Logs
-
-![Alt text](Cloudtrail_log.png)
-```
-
----
-
-## SQS Monitoring Dashboard
-
-![Alt text](SQS_Monitoring_Dashboard.png)
-```
-
----
-
-## Splunk Search Results
-
-Insert screenshot showing:
-
-* CloudTrail events in Splunk
-
-```markdown id="jlwm63"
-![Splunk Search Results](images/splunk-search-results.png)
-```
-
----
-
-## Splunk Internal Processing Logs
-
-Insert screenshot showing:
-
-* Processing Started
-* Processing Finished
-
-```markdown id="jlwm64"
-![Splunk Internal Logs](images/internal-logs.png)
-```
-
----
 
 # Security Concepts Demonstrated
 
@@ -481,28 +430,11 @@ Insert screenshot showing:
 
 ---
 
-# Future Enhancements
-
-* Integrate AWS GuardDuty
-* Integrate AWS Security Hub
-* Build Splunk dashboards
-* Create detection rules
-* Implement alerting workflows
-* Automate deployment using Terraform
-
----
-
-# Resume Bullet
-
-```text id="jlwm65"
-Built and deployed a cloud-native AWS security monitoring pipeline using CloudTrail, S3, SQS, and Splunk Enterprise to centralize AWS API activity logs and support cloud security monitoring and event analysis workflows.
-```
-
 ---
 
 # Conclusion
 
-This project demonstrates practical hands-on experience with:
+With this project, I demonstrate practical hands-on experience with:
 
 * AWS infrastructure deployment
 * Cloud networking
