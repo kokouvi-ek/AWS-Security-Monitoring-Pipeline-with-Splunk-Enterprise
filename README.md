@@ -248,8 +248,6 @@ AWS CloudTrail was configured to capture management events and deliver logs to t
 * Read and Write events enabled
 
 
-![CloudTrail](images/cloudtrail.png)
-
 ---
 ## 11. Create Amazon SQS Queue
 
