@@ -218,10 +218,8 @@ sudo /opt/splunk/bin/splunk enable boot-start
 
 
 http://<ELASTIC-IP>:8000
-```
 
 ![Alt text](Splunk_Web_Interface.png)
-```
 
 ---
 
@@ -256,21 +254,15 @@ Insert screenshot here showing:
 * CloudTrail enabled
 * S3 bucket configured
 
-```markdown id="jlwm44"
+
 ![CloudTrail](images/cloudtrail.png)
-```
 
 ---
-
 ## 11. Create Amazon SQS Queue
 
 An Amazon SQS Standard Queue was created to support event-driven ingestion.
 
-
-```
-```
 ---
-
 ## 12. Configure S3 Event Notifications
 
 The S3 bucket was configured to send object creation notifications to the SQS queue whenever new CloudTrail logs are delivered.
