@@ -150,7 +150,7 @@ Insert screenshot here showing:
 
 * ![Alt text](Network_Architecture.png)
 ```
-
+```
 ---
 ## 4. Configure Security Group
 
@@ -174,7 +174,7 @@ Splunk-Sec-Group
 
 
 ```
-
+```
 ---
 
 ## 5. Allocate Elastic IP
@@ -187,7 +187,7 @@ An Elastic IP address was allocated and associated with the Splunk-Server instan
 ---
 
 # Splunk Enterprise Deployment
-
+```
 ## 6. Launch EC2 Instance
 
 An Ubuntu-based EC2 instance was deployed using the custom VPC and public subnet.
@@ -208,7 +208,7 @@ An Ubuntu-based EC2 instance was deployed using the custom VPC and public subnet
 ```
 
 ---
-
+```
 ## 7. Install and Configure Splunk Enterprise
 
 ### Connect to EC2
