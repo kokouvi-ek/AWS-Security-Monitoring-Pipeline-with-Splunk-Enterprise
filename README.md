@@ -312,16 +312,12 @@ Application running outside AWS
 ## 15. Configure IAM Permissions
 
 A custom IAM policy was attached to provide access to:
-
+```
 * Amazon S3
 * Amazon SQS
 * AWS CloudTrail
-
-
-```
 ```
 ---
-
 # Splunk AWS Integration
 
 ## 16. Install Splunk Add-on for AWS
