@@ -146,12 +146,10 @@ The route table was associated with the public subnet.
 
 ### Screenshot Placement
 
-Insert screenshot here showing:
 
 * ![Alt text](Network_Architecture.png)
 ```
 ```
----
 ## 4. Configure Security Group
 
 A dedicated security group was configured for controlled administrative and Splunk access.
@@ -182,10 +180,8 @@ Splunk-Sec-Group
 An Elastic IP address was allocated and associated with the Splunk-Server instance to provide persistent public connectivity and stable remote access.
 
 
+
 ```
-
----
-
 ```
 ## 6. Launch EC2 Instance
 
@@ -205,8 +201,6 @@ An Ubuntu-based EC2 instance was deployed using the custom VPC and public subnet
 
 
 ```
-
----
 ```
 ## 7. Install and Configure Splunk Enterprise
 
