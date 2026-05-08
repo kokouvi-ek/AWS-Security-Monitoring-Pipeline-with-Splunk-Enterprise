@@ -96,10 +96,10 @@ Elastic IP
 
 | Component         | Configuration          |
 | ----------------- | ---------------------- |
-| Operating System  | Ubuntu Server 22.04    |
+| Operating System  | Ubuntu Server 26.04    |
 | Splunk Version    | Splunk Enterprise 10.x |
 | AWS Region        | us-west-1              |
-| EC2 Instance Type | t3.xlarge               |
+| EC2 Instance Type | t3.xlarge              |
 | Storage           | 100 GB gp3             |
 
 ---
@@ -222,7 +222,7 @@ Insert screenshot here showing:
 
 ## 5. Allocate Elastic IP
 
-An Elastic IP address was allocated and associated with the Splunk EC2 instance to provide persistent public connectivity and stable remote access.
+An Elastic IP address was allocated and associated with the Splunk-Server instance to provide persistent public connectivity and stable remote access.
 
 ### Screenshot Placement
 
@@ -244,17 +244,17 @@ Insert screenshot here showing:
 
 An Ubuntu-based EC2 instance was deployed using the custom VPC and public subnet.
 
-| Setting        | Value               |
-| -------------- | ------------------- |
-| Name           | `Splunk-Server`     |
-| AMI            | Ubuntu Server 22.04 |
-| Instance Type  | `t3.large`          |
-| Storage        | `100 GB gp3`        |
-| VPC            | `soc-vpc`           |
-| Subnet         | `soc-public-subnet` |
-| Public IP      | Disabled            |
-| Elastic IP     | Attached manually   |
-| Security Group | `Splunk-Sec-Group`  |
+| Setting        | Value                  |
+| -------------- | -----------------------|
+| Name           | `Splunk-Server`        |
+| AMI            | Ubuntu Server 26.04    |
+| Instance Type  | `t3.xlarge`            |
+| Storage        | `100 GB gp3`           |
+| VPC            | `Splunk-VPC`           |
+| Subnet         | `Splunk-Public-Subnet` |
+| Public IP      | Disabled               |
+| Elastic IP     | Attached manually      |
+| Security Group | `Splunk-Sec-Group`     |
 
 ### Screenshot Placement
 
@@ -274,13 +274,13 @@ Insert screenshot here showing:
 
 ### Connect to EC2
 
-```bash id="jlwm38"
+```bash
 ssh -i splunk-key.pem ubuntu@<ELASTIC-IP>
 ```
 
 ### Install Splunk
 
-```bash id="jlwm39"
+```bash
 wget -O splunk.tgz "SPLUNK_DOWNLOAD_LINK"
 
 sudo tar -xvzf splunk.tgz -C /opt
@@ -290,7 +290,7 @@ sudo /opt/splunk/bin/splunk start --accept-license
 
 ### Enable Boot Start
 
-```bash id="jlwm40"
+```bash 
 sudo /opt/splunk/bin/splunk enable boot-start
 ```
 
@@ -298,7 +298,7 @@ sudo /opt/splunk/bin/splunk enable boot-start
 
 ## 8. Access Splunk Web Interface
 
-```text id="jlwm41"
+
 http://<ELASTIC-IP>:8000
 ```
 
@@ -397,7 +397,7 @@ A resource-based policy was applied to allow S3 to publish messages to the queue
         "Service": "s3.amazonaws.com"
       },
       "Action": "sqs:SendMessage",
-      "Resource": "SQS_QUEUE_ARN",
+      "Resource": "SQS_ARN",
       "Condition": {
         "ArnLike": {
           "aws:SourceArn": "S3_BUCKET_ARN"
@@ -418,7 +418,7 @@ An IAM user was created to allow Splunk to securely access AWS services.
 
 ### IAM User
 
-```text id="jlwm48"
+```
 splunk-ingestion-user
 ```
 
@@ -445,7 +445,7 @@ Insert screenshot here showing:
 * IAM policy JSON
 * Attached permissions
 
-```markdown id="jlwm50"
+```markdown
 ![IAM Policy](images/iam-policy.png)
 ```
 
@@ -457,9 +457,6 @@ Insert screenshot here showing:
 
 Within Splunk Enterprise:
 
-```text id="jlwm51"
-Apps → Find More Apps
-```
 
 Install:
 
@@ -473,7 +470,6 @@ Splunk Add-on for AWS
 
 Navigate to:
 
-```text id="jlwm53"
 Splunk Add-on for AWS
 → Configuration
 → Accounts
@@ -495,9 +491,7 @@ Insert screenshot here showing:
 
 ## 18. Configure CloudTrail Input
 
-Navigate to:
 
-```text id="jlwm55"
 Splunk Add-on for AWS
 → Inputs
 → Create New Input
@@ -551,7 +545,7 @@ AWS actions were performed to generate CloudTrail events, including:
 
 ## View CloudTrail Events
 
-```spl id="jlwm58"
+```
 index=* sourcetype=aws:cloudtrail
 ```
 
@@ -559,7 +553,7 @@ index=* sourcetype=aws:cloudtrail
 
 ## Count AWS API Actions
 
-```spl id="jlwm59"
+```
 index=* sourcetype=aws:cloudtrail
 | stats count by eventName
 ```
@@ -568,7 +562,7 @@ index=* sourcetype=aws:cloudtrail
 
 ## Investigate User Activity
 
-```spl id="jlwm60"
+```
 index=* sourcetype=aws:cloudtrail
 | table _time userIdentity.userName eventName sourceIPAddress
 ```
