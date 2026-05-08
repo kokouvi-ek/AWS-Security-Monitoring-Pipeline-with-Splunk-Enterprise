@@ -430,8 +430,6 @@ index=* sourcetype=aws:cloudtrail
 
 ---
 
----
-
 # Conclusion
 
 With this project, I demonstrate practical hands-on experience with:
