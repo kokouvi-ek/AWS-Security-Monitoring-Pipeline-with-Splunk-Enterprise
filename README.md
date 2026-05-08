@@ -247,13 +247,6 @@ AWS CloudTrail was configured to capture management events and deliver logs to t
 * Management events enabled
 * Read and Write events enabled
 
-### Screenshot Placement
-
-Insert screenshot here showing:
-
-* CloudTrail enabled
-* S3 bucket configured
-
 
 ![CloudTrail](images/cloudtrail.png)
 
