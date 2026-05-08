@@ -186,7 +186,6 @@ An Elastic IP address was allocated and associated with the Splunk-Server instan
 
 ---
 
-# Splunk Enterprise Deployment
 ```
 ## 6. Launch EC2 Instance
 
