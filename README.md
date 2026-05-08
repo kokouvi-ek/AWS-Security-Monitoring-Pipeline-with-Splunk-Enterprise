@@ -144,7 +144,6 @@ An Internet Gateway was created and attached to the VPC to provide outbound inte
 
 The route table was associated with the public subnet.
 
-### Screenshot Placement
 
 
 * ![Alt text](Network_Architecture.png)
