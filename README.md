@@ -340,14 +340,11 @@ Splunk Add-on for AWS
 ## 17. Configure AWS Account in Splunk
 
 Navigate to:
-
+```
 Splunk Add-on for AWS
 → Configuration
 → Accounts
 → Add
-```
-
-
 ```
 
 ---
