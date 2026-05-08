@@ -165,20 +165,13 @@ Splunk-Sec-Group
 | Splunk Management | TCP      | 8089 | Trusted Public IP `/32` |
 | Splunk Forwarding | TCP      | 9997 | Trusted Public IP `/32` |
 
-
-
-```
-```
 ---
 
 ## 5. Allocate Elastic IP
 
 An Elastic IP address was allocated and associated with the Splunk-Server instance to provide persistent public connectivity and stable remote access.
 
-
-
-```
-```
+---
 ## 6. Launch EC2 Instance
 
 An Ubuntu-based EC2 instance was deployed using the custom VPC and public subnet.
@@ -196,8 +189,7 @@ An Ubuntu-based EC2 instance was deployed using the custom VPC and public subnet
 | Security Group | `Splunk-Sec-Group`     |
 
 
-```
-```
+---
 ## 7. Install and Configure Splunk Enterprise
 
 ### Connect to EC2
@@ -221,9 +213,7 @@ sudo /opt/splunk/bin/splunk start --accept-license
 ```bash 
 sudo /opt/splunk/bin/splunk enable boot-start
 ```
-
 ---
-
 ## 8. Access Splunk Web Interface
 
 
