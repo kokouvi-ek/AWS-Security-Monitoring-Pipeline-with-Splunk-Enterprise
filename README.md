@@ -144,11 +144,8 @@ An Internet Gateway was created and attached to the VPC to provide outbound inte
 
 The route table was associated with the public subnet.
 
-
-
 * ![Alt text](Network_Architecture.png)
-```
-```
+---  
 ## 4. Configure Security Group
 
 A dedicated security group was configured for controlled administrative and Splunk access.
