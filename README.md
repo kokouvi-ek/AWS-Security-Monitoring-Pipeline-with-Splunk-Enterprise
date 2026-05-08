@@ -176,13 +176,7 @@ The route table was associated with the public subnet.
 
 Insert screenshot here showing:
 
-* Route table
-* Internet Gateway
-* `0.0.0.0/0` route
-* Subnet association
-
-```markdown id="4ixj4t"
-![Route Table](images/route-table.png)
+* ![Alt text](Network_Architecture.png)
 ```
 
 ---
