@@ -216,8 +216,9 @@ sudo /opt/splunk/bin/splunk enable boot-start
 ---
 ## 8. Access Splunk Web Interface
 
-
+```
 http://<ELASTIC-IP>:8000
+```
 
 ![Alt text](Splunk_Web_Interface.png)
 
